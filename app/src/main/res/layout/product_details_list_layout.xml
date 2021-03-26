@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/normal_margin">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/card_bg"
+        app:cardBackgroundColor="@color/card_bg"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="7dp"
+        app:cardUseCompatPadding="false"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="true">
+
+            <ImageView
+                android:id="@+id/product_imageview"
+                android:layout_width="@dimen/imageview_width"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="@dimen/normal_margin"/>
+
+            <ImageView
+                android:id="@+id/food_type"
+                android:layout_width="@dimen/food_type_size"
+                android:layout_height="@dimen/food_type_size"
+                android:layout_marginEnd="@dimen/normal_margin"
+                android:src="@drawable/ic_veg"
+                android:layout_marginStart="@dimen/normal_margin"
+                app:layout_constraintBottom_toBottomOf="@id/product_name_txt"
+                app:layout_constraintEnd_toStartOf="@+id/product_name_txt"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toEndOf="@+id/product_imageview"
+                app:layout_constraintTop_toTopOf="@+id/product_name_txt"
+
+                />
+
+            <TextView
+                android:id="@+id/product_name_txt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                style="@style/product_name_style"
+                app:layout_constraintBottom_toBottomOf="@+id/product_imageview"
+                app:layout_constraintEnd_toStartOf="@+id/fav_image_view"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/food_type"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageView
+                android:id="@+id/fav_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/normal_margin"
+                android:src="@drawable/fav_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/product_name_txt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/product_name_txt"
+                app:layout_constraintTop_toTopOf="@+id/product_name_txt"
+                />
+
+            <TextView
+                android:id="@+id/price_txt_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textSize="@dimen/internet_msg_txt_size"
+                android:textStyle="bold"
+                android:textColor="@color/price_txt_color"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:layout_marginBottom="@dimen/normal_margin"
+                app:layout_constraintBottom_toTopOf="@id/quantityButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/food_type"
+                app:layout_constraintTop_toBottomOf="@+id/product_name_txt"
+                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+
+            <me.himanshusoni.quantityview.QuantityView
+                android:id="@+id/quantityButton"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/imageHeight"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/variant_selecter_layout"
+                app:layout_constraintTop_toBottomOf="@+id/price_txt_view"
+                app:layout_constraintVertical_bias="0.01999998"
+                app:qv_addButtonTextColor="@color/quantity_text_color"
+                app:qv_removeButtonTextColor="@color/quantity_text_color"
+                app:qv_quantityTextColor="@color/white"
+                app:qv_removeButtonBackground="@color/transparent"
+                app:qv_addButtonBackground="@color/transparent"
+                app:qv_quantityBackground="@color/transparent"
+                android:background="@drawable/count_viewbg"
+                android:layout_margin="@dimen/normal_margin"
+                />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/variant_selecter_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/quantityButton"
+                app:layout_constraintEnd_toStartOf="@+id/quantityButton"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toEndOf="@+id/product_imageview"
+                app:layout_constraintTop_toTopOf="@+id/quantityButton"
+                app:layout_constraintVertical_bias="0.0"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                app:cardCornerRadius="10dp"
+                android:background="@color/white"
+                android:clipToPadding="true"
+                app:cardPreventCornerOverlap="true"
+                app:cardElevation="3dp"
+                android:outlineAmbientShadowColor="@color/white"
+                app:cardBackgroundColor="@color/white">
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/variant_selecter"
+                    android:layout_width="@dimen/spinner_width"
+                    android:layout_height="@dimen/imageHeight"
+                    android:clipToPadding="true"
+                     />
+            </androidx.cardview.widget.CardView>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
