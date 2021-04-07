@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 class ProductDetails {
 
-    @SerializedName("Vijayan")
+    @SerializedName("Details")
     var DetailsList: ArrayList<Details?>? = null
     var total: String? = null
     var status: String? = null

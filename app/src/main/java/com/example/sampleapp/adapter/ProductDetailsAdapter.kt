@@ -89,7 +89,7 @@ class ProductDetailsAdapter(
                 )
                 spannable.setSpan(AbsoluteSizeSpan(13, true), length, spannable.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
             } else if (details.variation.equals("true")) {
-                //Todo am not sure about the values in the description
+                itemview.price_txt_view.text = value
 
 
             }

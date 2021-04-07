@@ -2,6 +2,7 @@ package com.example.sampleapp
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -62,6 +63,7 @@ class MainActivity : AppCompatActivity() {
     * */
     private fun itemClicked(value: Details) {
         //open the set status activity to update/set the status for the logged in user
+        Toast.makeText(this,value.product_name.toString(),Toast.LENGTH_LONG).show()
 
     }
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GTech SampleApp</string>
+    <string name="app_name">SampleApp</string>
     <string name="noInternet" >Please check your internet connection!!</string>
     <string name="please_select">Select</string>
 </resources>

@@ -45,9 +45,9 @@ class ProductViewModel : ViewModel() {
                 .client(okHttpClient)
                 .build()
         val apiService = retrofit.create(APIService::class.java)
-        val requestData = RequestData("24", "")
         val call: Call<ProductDetails?>? =
-                apiService.getProductData("get_all_products.php", requestData)
+                apiService.getProductData("f834b188")
+        //used the enqueue method to perform the operation in asynchronous
         call?.enqueue(object : Callback<ProductDetails?> {
             override fun onResponse(
                     call: Call<ProductDetails?>,
@@ -64,46 +64,6 @@ class ProductViewModel : ViewModel() {
             }
 
         })
-    }
-
-
-    private val interceptor: Interceptor = Interceptor { chain ->
-        val originalRequest: Request = chain.request() //Current Request
-        var response: Response = chain.proceed(
-                originalRequest
-        ) //Get response of the request
-        if (BuildConfig.DEBUG) {
-            //logging the response
-            val bodyString = response.body()!!.string()
-            Log.e(
-                    "RETROFIT", """
-     Sending request %s with headers 
-     %s
-     Input %s
-     Response HTTP %s %s 
-     Body %s
-     ${originalRequest.url()}${originalRequest.headers()}${bodyToString(originalRequest)}${response.code()}${response.message()}$bodyString
-     """.trimIndent()
-            )
-            response = response.newBuilder().body(
-                    ResponseBody.create(response.body()!!.contentType(), bodyString)
-            ).build()
-        }
-        response
-    }
-
-    private fun bodyToString(request: Request): String {
-        var body = ""
-        return try {
-            val buffer = Buffer()
-            if (request.body() != null) {
-                request.body()!!.writeTo(buffer)
-                body = buffer.readUtf8()
-            }
-            body
-        } catch (e: IOException) {
-            "Not Working"
-        }
     }
 
 }
